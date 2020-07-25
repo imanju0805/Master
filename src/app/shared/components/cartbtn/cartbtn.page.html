@@ -1,0 +1,26 @@
+<ion-row>
+  <ion-col size="6">
+    <ion-row>
+      <ion-col size="4" style="padding:0;" (click)="cartActions(false)">
+        <ion-icon name="remove"></ion-icon>
+      </ion-col>
+      <ion-col size="4" style="padding:0;">
+        <input type="tel"  [(ngModel)]="medicin">
+      </ion-col>
+      <ion-col size="4" style="padding:0;" (click)="cartActions(true)">
+        <ion-icon name="add"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-col>
+  <ion-col >
+    <ion-button  *ngIf="medicin"  size="small" expand="block" class="add-to-cart" (click)="addToCartAction()">
+      Add to Cart</ion-button>
+     <ion-button *ngIf="!medicin" size="small" expand="block" class="add-to-cart" (click)="addMore()">Add more
+    </ion-button> 
+  </ion-col>
+
+  <ion-col size="6" *ngIf="removeButtonDisplayStatus" class="remove-button">
+    <ion-button fill="clear" (click)="removeItemFromCart()" style="height: 1.55rem;" class="add-to-cart">REMOVE
+    </ion-button>
+  </ion-col>
+</ion-row>

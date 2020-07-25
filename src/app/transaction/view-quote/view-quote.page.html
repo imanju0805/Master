@@ -1,0 +1,84 @@
+<ion-header color="light" no-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" (click)="slidePage()"></ion-back-button>
+      <img routerLink="/transaction/tabs/home" style="margin-top:0px;" src="assets/icon/Top-Nav-logo.png">
+    </ion-buttons>
+
+    <ion-title style="font-size: 16px;" *ngIf="data">Order No -
+      <ion-label><b style="font-size: 16px;">{{data}}</b></ion-label>
+    </ion-title>
+
+    <ion-title>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="orderDetails">
+  <div  style="text-align:center">
+    <ion-label padding style="color:#004a8e;font-size:12px!important;text-align:center;font-weight: bold;">Quote Received : {{count}}</ion-label>
+  </div>
+  <ion-card style="height:50px;" *ngFor="let item of orderDetails">
+    <div >
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-start size="3">
+            <div class="date-col">
+              <ion-label class="label-date">
+                &nbsp;{{item.OrderDate |  date :  "dd"}}
+                <p class="paragraph">
+                  {{item.OrderDate |  date :  "MMM yy"}}</p>
+              </ion-label>
+            </div>
+          </ion-col>
+
+          <ion-col size="5">
+            <div class="order-col">
+              <ion-label 
+                style="margin-right:0px;font-weight:bold;color:black;margin-left:5px;">Invoice
+                No-{{item.InvoiceMst_Id}}</ion-label>
+              <!-- <ion-label *ngIf="orderDetails.PayRefNo==''"
+                style="margin-right:0px;font-weight:bold;color:black;margin-left:5px;">Quote
+                No-{{item.InvoiceMst_Id}}</ion-label> -->
+
+              <!-- <p style="margin-top:4px;font-size:10px;text-align:left;color:#004a8e;margin-left:5px;font-weight:bold;">
+                Amount :{{(item.Total)}}
+              </p> -->
+
+            </div>
+          </ion-col>
+          <ion-col class="box-opener" size="4">
+            <div class="distance-col">
+              <p *ngIf="item.PayRefNo==''"
+                style="color:#004a8e;margin-top:3px;position: absolute;font-size:12px;"
+                (click)="viewInvoice(item.InvoiceMst_Id)">View Quote</p>
+              <p *ngIf="item.PayRefNo" style="color:#004a8e;margin-top:3px;position: absolute;;font-size:12px;"
+                (click)="viewInvoice(item.InvoiceMst_Id)">View Invoice</p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+  <div class="box" [class.opened]="openPrescription">
+
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" *ngFor="let item of sampleNumber,let i=index">
+            <div class="prescription">
+              <a style="font-size:11px;"><b>Prescription -{{i+1}}</b>
+
+              </a>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="false">
+          <p style="font-weight:bold;margin-top:10px;font-size:10px;text-align:left;color:black;margin-left:5px;">
+            Prescription is not available</p>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+
+</ion-content>

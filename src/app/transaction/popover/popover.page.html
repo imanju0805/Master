@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Search location</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar style="--background:#004a8e">
+    <ion-searchbar [(ngModel)]="autocomplete.input" clear-icon=" " (ionInput)="UpdateSearchResults()"
+      placeholder="Search for a place"></ion-searchbar>
+    <div (click)="ClearAutocomplete()">
+      <ion-icon style="margin-right:20px;;margin-top:-35px;float:right" name="close-circle"></ion-icon>
+    </div>
+  </ion-toolbar>
+  <ion-list [hidden]="autocompleteItems.length == 0">
+    <ion-item *ngFor="let item of autocompleteItems" tappable (click)="SelectSearchResult(item)">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="1">
+            <ion-icon style="font-size:14px!important" name="pin"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-label style="font-size:12px!important;font-weight: bold;color:black;">
+              {{ item.structured_formatting.main_text }}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row style="margin-top:-15px;">
+          <ion-col size="1">
+
+          </ion-col>
+          <ion-col>
+            <p style="font-size:10px;color:black;">{{item.structured_formatting.secondary_text}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-item>
+  </ion-list>
+  <ion-row *ngIf="enbaleCurrentPosition">
+
+    <ion-col>
+      <ion-button (click)="getCurrentPossition()" shape="round" fill="outline">
+        <ion-icon slot="start" name="locate"></ion-icon>
+        Use current location
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-header>
+<ion-content>
+
+  <div *ngIf="false" class="map-wrapper" style="height: 100%;">
+    <div id="map_center">
+      <ion-icon name="pin" size="large" color="danger"></ion-icon>
+    </div>
+    <div #map id="map" style="height: 100%;"></div>
+  </div>
+</ion-content>

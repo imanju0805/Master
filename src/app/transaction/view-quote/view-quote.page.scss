@@ -1,0 +1,269 @@
+.menu-badge{
+    font-size:9px;
+    margin-left: -8px;
+    position:relative;
+    margin-top:4px;
+    margin-bottom:15px;
+    color:#ffffff;
+   background-color: red;
+    padding:3px 4px;
+    border-radius:50%;
+  }
+
+  .img{
+    position:relative;
+    height:30px;
+    width:30px;
+    margin-left:34px;
+  }
+  
+  .payment{
+   
+    height: 100vh;
+    width: 100%;
+  }
+
+  img{
+    margin-top: 50px;
+  }
+  
+  .bottomRow
+  {
+    margin-top: -5px;
+  }
+  
+  img{
+    margin-top: -20px;
+  }
+  
+  .bottom{
+    margin-top: -20px;
+  }
+   
+  .parent-div{
+    margin-left:-12px;
+    height:50px;
+    width:100%
+  }
+  
+  .date-col{
+    padding-right:10px;
+    padding-left:10px;
+    position:absolute;
+    border-right:1px solid black;
+    margin-top:-4px;
+    height:38px;
+  }
+  .paragraph{
+    font-size:8px;
+    color:black;
+    opacity:0.7;
+  }
+  .label-date{
+    color:black;
+    font-size:12px;
+    font-weight:bold;
+  }
+
+  ion-label{
+    font-size: 100px;
+  }
+  .order-col{
+    position:relative;
+    text-align:left;
+    margin-top:-4px;
+    height:38px;
+  }
+  .order-label{
+   margin-left: 18%;
+    font-size:12px;
+    color:black;
+    font-weight:bold;
+    text-align: center;
+  }
+  .distance-col{
+    margin-top:4px;
+    color:black;
+    position:relative;
+    text-align:left
+  }
+  .distance-label{
+    font-size:12px;
+    color:black;
+    font-weight: bold;
+    opacity:0.6;
+  }
+  .top{
+    --background:rgba(112, 105, 105, 0.849);
+    opacity:0.7;
+    width:30px;
+    height:30px;
+  
+  }
+  ion-fab{
+    width:4px;
+    
+  }
+  
+  
+  .wrapper-progressBar {
+    width: 100%
+  }
+  
+  ion-label{
+  font-size: 11px !important;
+  }
+  
+  .progressBar li {
+    list-style-type: none;
+    float: left;
+    width: 33%;
+    position: relative;
+    text-align: center;
+    font-size:12px;
+    
+  }
+  
+  .progressBar li:before {
+    content: " ";
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #373c4f;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px;
+    background-color: white
+  }
+  
+  .progressBar li:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    color:#373c4f;
+    background-color: #24d5e1;
+    top: 5px;
+    left: -50%;
+    z-index: -1;
+  }
+  
+  .progressBar li:first-child:after {
+    content: none;
+  }
+  
+  .progressBar li.active {
+    color: #373c4f;
+  }
+  
+  .progressBar li.active:before {
+    border-color: #373c4f;
+    background-color: #004a8e;
+  }
+  
+  .progressBar .active:after {
+    background-color: #24d5e1;
+  }
+  
+  @media (min-width:560px){
+  .paragraph{
+    font-size: 12px !important;
+  }
+  }
+  
+  #map_canvas {
+  width: 90%;
+  height: 80%;
+  border: 1px solid red;
+  }
+  
+  
+  #address {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  }
+  
+  #map {
+  width: 100%;
+  height: 30vh;
+  }
+  
+  .map-wrapper {
+  position: relative;
+  
+  #map_center {
+    position: absolute;
+    z-index: 99;
+    height: 40px;
+    width: 30px;
+    top: 50%;
+    left: 50%;
+    margin-left: -21px;
+    margin-top: -41px;
+  }
+  }
+  .back {
+  --background:#004a8e;
+  --color:white;
+  }
+  
+  .active {
+  --color: var(--ion-color-primary);
+  --background: rgba(var(--ion-color-primary-rgb), 0.12);
+  --background-hover: rgba(var(--ion-color-primary-rgb), 0.16);
+  --background-focused: rgba(var(--ion-color-primary-rgb), 0.24);
+  }
+  
+  ion-icon {
+  color: inherit;
+  }
+  
+  @media(min-width:560px){
+  ion-grid{
+    font-size: 12px !important;
+  }
+  }
+  
+  
+  .box-opener {
+  cursor: pointer;
+  }
+  
+  .box {
+  background-color: white;
+  max-height: 0px;
+  overflow-y: hidden;
+  transition: ease-in-out 400ms max-height;
+  }
+  
+  .box.opened {
+  max-height: 500px;
+  transition: ease-in-out 600ms max-height;
+  }
+  .itemAmount{
+    margin-left:10px;
+    position:relative;
+    text-align:right;
+    font-size:12px;
+    border: 1px solid rgb(187, 181, 181);
+    margin-top:-3px;
+    height:20px;
+  }
+  .amount{
+    margin-left:10px;
+    position:relative;
+    text-align:right;
+    font-size:12px;
+    margin-top:-3px;
+    height:20px;
+  }
+  .prescription{
+    a:hover{
+      color:red;
+    }
+    a:visited{
+      color:#004a8e;
+    }
+  }
+  

@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" text=""></ion-back-button>
+      <img routerLink="/transaction/tabs/home" src="assets/icon/Top-Nav-logo.png">
+    </ion-buttons>
+    <ion-title style="font-size: 16px;">Order Summary</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row class="header-row">
+    <ion-col>
+      <span>Delivery Address</span>
+    </ion-col>
+  </ion-row>
+  <ion-grid class="order-grid">
+    <ion-row class="order-row">
+      <ion-col>
+        <p *ngIf="AddressLabel" class="address-label">{{AddressLabel}}</p>
+        <p *ngIf="addres">{{addres}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="hideComment">
+      <ion-col (click)="viewComment=!viewComment">
+        <ion-label style="color: brown;font-size: 14px;"><u>View Comment </u></ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div padding-left class="box" [class.opened]="viewComment">
+
+          <ion-label style="color: #004a8e;font-size:13px;">{{comment}}</ion-label>
+          <ion-label *ngIf="comment==''" style="color: #004a8e;font-size:13px;">No comment to show</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-row class="header-row" *ngIf="imageArray.length">
+    <ion-col>
+      <span>Prescriptions</span>
+    </ion-col>
+  </ion-row>
+
+  <ion-grid class="order-grid" *ngIf="imageArray.length">
+    <ion-row class="order-prescription-image-row">
+      <ion-col size="4" *ngFor="let image of imageArray;let i=index">
+        <img [src]="image.localPath">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-row class="header-row" *ngIf="medicinList.length">
+    <ion-col>
+      <span>Medicins</span>
+    </ion-col>
+  </ion-row>
+  <ion-grid class="order-grid">
+    <ion-row class="order-medicin-row" *ngFor="let medicin of medicinList;let i=index">
+      <ion-col size="1">
+        <span>{{i+1}}</span>
+      </ion-col>
+      <ion-col size="9">
+        <span>{{medicin.SearchResult}}</span>
+      </ion-col>
+      <ion-col size="2">
+        <span>{{medicin.count}}</span><small>No</small>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button color="primary" [disabled]="disabledButton" size="default" expand="block" fill="solid" (click)="confirmOrder()">Request For Quote
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

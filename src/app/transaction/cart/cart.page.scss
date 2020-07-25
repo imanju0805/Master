@@ -1,0 +1,77 @@
+ion-content{
+   
+
+    p{
+        margin: 0;
+    }
+    ion-searchbar{
+        --background:#C3FAFE;
+    }
+    >ion-grid{
+       &.medicin-search-list{
+           >ion-row{
+            border:solid thin #cccccc;
+            // border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 5px;
+               >ion-col{
+               
+                >ion-row{
+                    >ion-col{
+                        &.medicin-avatar {
+                            // background-image: url("http://gwebsolution.com/demo/medv/svg/003-drugs.svg");
+                            //background-repeat: no-repeat;
+                            >img{
+                              padding: .5rem;
+                            }
+                           
+                          }
+                        p{
+                            &.header{
+                             font-size: 14px;
+                             font-weight: bold;
+                            }
+                            &.sub-header{
+                                font-size: 12px;
+                                color: #cccccc;
+                            }
+                        }
+                    }
+                }
+                &.cart-item-footer{
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-top: 10px;
+                    padding-top:10px;
+                    border-top: solid thin #ccc;
+                }
+
+                >ion-button{
+                    padding: 0;
+                    height: 15px;
+                }
+               }
+           }
+          
+
+       }
+    }
+}
+
+
+.box-opener {
+    cursor: pointer;
+    }
+    
+    .box {
+    // background-color: #FFCC55;
+    background-color: white;
+    max-height: 0px;
+    overflow-y: hidden;
+    // transition: ease-in-out 400ms max-height;
+    }
+    
+    .box.opened {
+    max-height: 500px;
+    // transition: ease-in-out 600ms max-height;
+    }

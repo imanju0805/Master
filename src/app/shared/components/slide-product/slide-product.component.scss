@@ -1,0 +1,27 @@
+.bac{
+	width: 100%;
+//   background-image: url('/assets/images/photo6.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.category-banner {
+	border-left: 8px solid var(--ion-color-secondary);
+	background: rgba(250, 248, 248, 0.7);
+	height: 40px;
+	padding: 10px;
+	font-weight: bold;
+	color: #ff6464;
+	overflow: hidden;
+}
+.labelName{
+	font-size:9px!important;
+	color:black;
+	font-weight:bold;
+	//margin-top:-8px;
+}
+
+
+ion-slides {
+	height: 100%;
+  }

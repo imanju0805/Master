@@ -1,0 +1,105 @@
+<ion-content>
+  <div class="logo">
+    <img src="assets/icon/3rd&4th-Page-logo.png" />
+  </div>
+  <h1>Login</h1>
+  <div class="login">
+    <form *ngIf="!showOtpLogin" [formGroup]="myForm" (ngSubmit)="prosesLogin()">
+      <ion-item>
+        <ion-icon name="person" style="color: #004a8e;width: 18px;"></ion-icon>
+        <ion-input type="text" style="font-size:12px;color:black;" placeholder="user name"
+          formControlName="UserName" required>
+        </ion-input>
+      </ion-item>
+      <div *ngFor="let validation of validation_messages.UserName">
+        <ng-container *ngIf="UserName.hasError(validation.type) && (UserName.dirty || UserName.touched)">
+          <small class="error-message">{{ validation.message }}</small>
+        </ng-container>
+      </div>
+      <br>
+      <ion-item *ngIf="passEnable">
+        <ion-icon name="lock" style="color: #004a8e;width: 18px;"></ion-icon>
+        <ion-input name="password" style="font-size:12px;color:black;" [type]="passwordType"
+          placeholder="Password" formControlName="password" (keyup.enter)="prosesLogin()" required>
+
+        </ion-input>
+        <div style="margin-top:0px;">
+          <span>
+            <ion-icon item-end (click)="hideShowPassword()" [name]="passwordIcon" class="passwordIcon"></ion-icon>
+          </span>
+        </div>
+
+      </ion-item>
+      <div *ngIf="passEnable">
+        <div *ngFor="let validation of validation_messages.password">
+          <ng-container *ngIf="password.hasError(validation.type) && (password.dirty || password.touched)">
+            <small class="error-message">{{ validation.message }}</small>
+          </ng-container>
+        </div>
+      </div>
+      <div class="btn2">
+        <ion-button class="btn1" type="submit" [disabled]="!myForm.valid" expand="block">LOG IN</ion-button>
+
+      </div>
+
+      <div style="text-align: center; margin-top:20px;">
+        <!-- <small><b (click)="resetPAssPAge()"> Forgot Password /</b></small>&nbsp;&nbsp; -->
+        <small (click)="otpClick()" style="font-weight: bold;font-size: 12px;">Login With OTP</small>
+        <span class="divider line one-line">Or</span>
+      </div>
+    </form>   
+    <form *ngIf="showOtpLogin" [formGroup]="myOtpForm" (ngSubmit)="otpLogin()">
+      <ion-item>
+        <b> +91 | &nbsp;</b>
+        <ion-input appPhoneMask type="tel" (ngModelChange)="checkMobileNumber($event)" maxLength="10"
+           style="font-size:14px;color:black;font-weight:bold;"
+          placeholder="Enter your mobile number" formControlName="mobNo" required>
+        </ion-input>
+        <!-- <ion-button (click)="sendOtp()" [disabled]="loginbtnDisable">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button> -->
+        <ion-button fill="outline" (click)="sendOtp()"  [disabled]="loginbtnDisable">
+          Get OTP
+        </ion-button>
+      </ion-item>
+      <div *ngFor="let validation of validation_messages.mobNo">
+        <ng-container *ngIf="mobNo.hasError(validation.type) && (mobNo.dirty || mobNo.touched)">
+          <small class="error-message">{{ validation.message }}</small>
+        </ng-container>
+      </div>
+      <br>
+      <div  *ngIf="showOtpfiled">
+      <ion-item>
+        <!-- <ion-icon name="" style="color: #004a8e;width: 18px;"></ion-icon> -->
+        <ion-input name="otp" type="tel" onKeyPress="if(this.value.length==6){return false;}" appPhoneMask
+          style="font-size:12px;color:black;font-weight:bold;" placeholder="otp" formControlName="OTP"
+          (keyup.enter)="prosesLogin()" required>
+
+        </ion-input>
+      </ion-item>
+      <div *ngIf="otpEnable">
+        <div *ngFor="let validation of validation_messages.OTP">
+          <ng-container *ngIf="OTP.hasError(validation.type) && (OTP.dirty || OTP.touched)">
+            <small class="error-message">{{ validation.message }}</small>
+          </ng-container>
+        </div>
+      </div>
+      <div class="btn2">
+        <ion-button class="btn1" type="submit" [disabled]="!myOtpForm.valid" expand="block">LOG IN</ion-button>
+
+      </div>
+      </div>
+      <div style="text-align: center; margin-top:20px;">
+        <!-- <small><b (click)="resetPAssPAge()"> Forgot Password /</b></small> -->
+        <small (click)="passwordClick()"><b> Login with Password </b></small>
+        <span class="divider line one-line">Or</span>
+      </div>
+    </form>
+  </div>
+
+  <div class="ion-text-center">
+    <ion-label style="font-weight: bolder;font-size: small;">Don’t have Account? <span class="link-button"
+        routerLink='/entry/mobile-verification'><a><b>Sign Up</b></a></span>
+    </ion-label>
+  </div>
+</ion-content>

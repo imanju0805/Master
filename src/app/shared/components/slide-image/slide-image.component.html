@@ -1,0 +1,250 @@
+<!-- <ion-card style="width:auto;padding-right:2px;height:auto">
+    <ion-slides [options]="sliderCon" pager="true" >
+      <ion-slide>
+        <img src="/assets/dashboard-images/time.png" >
+      </ion-slide>
+      <ion-slide>
+        <img src="/assets/dashboard-images/mobile.jpg">
+      </ion-slide>
+  
+      <ion-slide>
+        <img src="/assets/dashboard-images/market.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="/assets/dashboard-images/delivery.png">
+      </ion-slide>
+    </ion-slides>
+  </ion-card> -->
+
+
+<ion-title style="color: rgb(109, 107, 107); font-size:12px;font-weight: bold;margin-top: 10px;">Top OTC Product
+  Categories</ion-title>
+
+
+<ion-slides [options]="sliderCon1" pager="false">
+  <ion-slide>
+    <ion-grid fixed>
+
+      <ion-row>
+
+        <ion-col *ngFor="let cat of categoryList | slice:0:1 " >
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+        <ion-col *ngFor="let cat of categoryList | slice:1:2 " >
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+        <ion-col *ngFor="let cat of categoryList | slice:2:3 ">
+          <img class="catalog" src="{{url + cat.catImage}}"(click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+
+        <ion-col *ngFor="let cat of categoryList | slice:3:4">
+
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+        <ion-col *ngFor="let cat of categoryList | slice:4:5 " >
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)" >
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+        <ion-col *ngFor="let cat of categoryList | slice:5:6 " >
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+        <ion-col *ngFor="let cat of categoryList | slice:6:7" >
+
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+        <ion-col *ngFor="let cat of categoryList | slice:7:8 " >
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+        <ion-col *ngFor="let cat of categoryList | slice:8:9 " >
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+      </ion-row>
+
+
+
+
+    </ion-grid>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-grid fixed>
+      <ion-row>
+
+        <ion-col *ngFor="let cat of categoryList | slice:9:10">
+
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+        <ion-col *ngFor="let cat of categoryList | slice:10:11 ">
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+        <ion-col *ngFor="let cat of categoryList | slice:11:12 " >
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+
+        <ion-col *ngFor="let cat of categoryList | slice:12:13">
+
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+        <ion-col *ngFor="let cat of categoryList | slice:13:14 ">
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+        <ion-col *ngFor="let cat of categoryList | slice:14:15 ">
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngFor="let cat of categoryList | slice:15:16" >
+
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+
+        <ion-col *ngFor="let cat of categoryList | slice:16:17 " >
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+        <ion-col *ngFor="let cat of categoryList | slice:17:18 " >
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-grid fixed>
+      <ion-row>
+
+        <ion-col *ngFor="let cat of categoryList | slice:18:19" >
+
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+        <ion-col *ngFor="let cat of categoryList | slice:19:20 " >
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+        <ion-col *ngFor="let cat of categoryList | slice:20:21 ">
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+
+        <ion-col *ngFor="let cat of categoryList | slice:21:22" >
+
+          <img class="catalog" src="{{url + cat.catImage}}" (click)="categories(cat)">
+          <p class="cateName" (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+        <ion-col *ngFor="let cat of categoryList | slice:22:23 " >
+          <img class="catalog" src="{{url + cat.catImage}}"  (click)="categories(cat)">
+
+          <p class="cateName"  (click)="categories(cat)">{{cat.catName}}</p>
+
+        </ion-col>
+
+        <ion-col>
+         
+
+          <p class="cateName"  (click)="categories(cat)"></p>
+
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </ion-slide>
+</ion-slides>
+
+
+
+<ion-card style="width:auto;padding-right:2px;height:auto">
+  <ion-slides [options]="sliderCon" pager="true" >
+    <ion-slide>
+      <img src="/assets/dashboard-images/time.png" >
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/dashboard-images/mobile.jpg">
+    </ion-slide>
+
+    <ion-slide>
+      <img src="/assets/dashboard-images/market.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="/assets/dashboard-images/delivery.png">
+    </ion-slide>
+  </ion-slides>
+</ion-card>

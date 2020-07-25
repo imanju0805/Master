@@ -1,0 +1,47 @@
+ion-content {
+  > ion-grid {
+    margin-top: 10rem;
+    > ion-row {
+        &.extra-marign{
+            margin: 1rem 0;
+        }
+      > ion-col {
+        &.items-center {
+          display: flex;
+          justify-content: center;
+          &.icon-col {
+            > span {
+              ion-icon {
+                font-size: 100px;
+                color: #004a8e;
+              }
+            }
+          }
+          &.text-col {
+            > span {
+              &.bold-text {
+                font-size: 30px;
+                color: #cccccc;
+              }
+
+              &.order-message {
+                text-align: center;
+                font-size: 18px;
+                color: #808080;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  >ion-row{
+      &.button-class{
+          >ion-col{
+              >ion-button{
+                  --background:#004a8e;
+              }
+          }
+      }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "558139536776",
+    "firebase_url": "https://fcm-medv.firebaseio.com",
+    "project_id": "fcm-medv",
+    "storage_bucket": "fcm-medv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558139536776:android:45db9d7d5d9ab8d7d2763d",
+        "android_client_info": {
+          "package_name": "com.ingex.medv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558139536776-ekgqqjk39of4des868uphpucfhoqoano.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKmKadeW3YKuUjWdzWnQ6OAUSpvysuXO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "558139536776-ekgqqjk39of4des868uphpucfhoqoano.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

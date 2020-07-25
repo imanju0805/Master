@@ -1,0 +1,145 @@
+
+
+.logo{
+    text-align: center;
+    margin-top:50px;
+}
+
+h1{
+    text-align: center;
+    color: #004a8e;
+    font-family: Roboto;
+}
+
+.login{
+    padding-top: 10%;
+    padding-left:25px;
+    padding-right:25px;
+    border-radius:15px;
+}
+
+::placeholder { 
+    font-size: 2px;
+    font-family: Roboto;
+  }
+
+  .btn2{
+      margin-top: 10%;
+      border-radius: 0%;
+  }
+
+ small{
+     font-family: Roboto;
+     color:#373c4f;
+ }
+
+ .passwordIcon{
+     margin-top:0px;
+     font-size:13px;
+     color: #c3c3c9;
+ }
+
+  .btn1{
+    --background:#004a8e;
+    --color:rgb(252, 232, 232);
+  
+  }
+
+  ion-label{
+      font-weight: bold;
+      color: #373c4f;
+      font-size: medium;
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+.box-opener {
+    cursor: pointer;
+}
+.error-message{
+    color: rgb(235, 32, 32);
+}
+
+.box {
+    background-color: #FFCC55;
+    max-height: 0px;
+    overflow-y: hidden;
+    transition: ease-in-out 400ms max-height;
+}
+
+.box.opened {
+    max-height: 500px;
+    transition: ease-in-out 600ms max-height;
+}
+
+
+@media (min-width: 240px) and (max-width: 768px) {
+   
+}
+
+
+
+
+
+
+
+
+
+
+.bt{
+    background-color: #3b5998;
+    color: whitesmoke;
+    height: 30px;
+  }
+  
+
+  
+  
+
+  ion-fab-button{
+      --background:#3b5998;
+  }
+  
+
+
+  .divider {
+    display: flex;
+    
+    &:before,
+    &:after {
+      content: "";
+      flex: 1;
+    }
+}
+  
+.line {
+    align-items: center;
+    margin: 1em -1em;
+    color: #cccccc;
+    
+    &:before,
+    &:after {
+      height: 1px;
+      margin: 0 1em;
+    }
+} 
+
+.one-line {
+    &:before,
+    &:after {
+       background: #cccccc;
+    }
+}
+
+  
+  
+  

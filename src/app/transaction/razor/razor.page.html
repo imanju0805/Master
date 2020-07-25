@@ -1,0 +1,34 @@
+
+
+<ion-content>
+
+  <div text-center>
+    <img src="assets/icon/3rd&4th-Page-logo.png" />
+  </div>
+  <div *ngIf="showSuccess" style="margin-top:100px;">
+  <div text-center>
+    <img src="assets/images/success.gif" style="height:25%;width:25%" />
+
+    <p style="color:black;font-weight: bold;font-size:12px!important;">Refernce number: {{invoiceDetails}}</p>
+
+  </div>
+  <div text-center>
+    <ion-label style="font-size:16px!important;color:#004a8e;font-weight: bold;text-align: center;">Payment Successfull</ion-label>
+  </div>
+ 
+  </div>
+  <div *ngIf="showFailure" style="margin-top:100px;">
+    <img src="assets/images/failure.png" />
+  </div>
+  
+  <div *ngIf="showFailure" style="margin-top:10px;" text-center>
+    <ion-button style="color:white;font-weight: bold;font-size:12px!important;" (click)="invoicePage()">Try again</ion-button>
+ 
+  </div>
+</ion-content>
+<ion-footer>
+  <div *ngIf="showSuccess" text-center>
+    <ion-button style="color:white;font-weight: bold;font-size:12px!important;" (click)="homePage()">Continue Order </ion-button>
+ </div>
+</ion-footer>
+ 

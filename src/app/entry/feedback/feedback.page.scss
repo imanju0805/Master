@@ -1,0 +1,38 @@
+.menu-badge{
+    font-size:9px;
+    margin-left: -8px;
+    position:relative;
+    margin-top:4px;
+    
+    margin-bottom:15px;
+    color:#ffffff;
+    background-color: red;
+    padding:3px 4px;
+    border-radius:50%;
+  }
+  
+  
+  ion-toolbar{
+    // --background:#004a8e;
+    --color:#004a8e;   
+  }
+  .support-logo {
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .support-logo img {
+    max-width: 150px;
+  }
+  
+  .list {
+    margin-bottom: 0;
+  }
+  .error-message{
+    color:red;
+    margin-left:15px;
+  }
+  
+  
+  

@@ -1,0 +1,142 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="" (click)="back()"></ion-back-button>
+      <img routerLink="/transaction/tabs/home" src="assets/icon/Top-Nav-logo.png">
+    </ion-buttons>
+    <ion-title style="font-size: 16px;">Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile">
+  <ion-card no-margin>
+    <ion-grid fixed no-padding>
+      <ion-row>
+        <ion-col padding>
+
+          <ion-list margin-bottom>
+            <ion-list-header color="light">
+              <ion-label class="fw700">Update Profile</ion-label>
+            </ion-list-header>
+
+            <form [formGroup]="myForm" (ngSubmit)="sendData()">
+              <ion-grid style="border:2px solid rgb(153, 141, 141)">
+                <ion-row>
+                  <ion-col>
+                  <ion-item>
+                    <ion-label color="dark" position="stacked"> Name:</ion-label>
+                    <ion-input inputmode="text" [(ngModel)]="custName" formControlName="name" placeholder="Ex..: Joe Doe">
+                    </ion-input>
+                  </ion-item>
+                    <div *ngFor="let validation of validation_messages.name">
+                      <ng-container style="color:black;font-size:13px;text-align:center"
+                        *ngIf="name.hasError(validation.type) && (name.dirty || name.touched)">
+                        <small class="error-message">{{ validation.message }}</small>
+                      </ng-container>
+                    </div>
+                </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label color="dark" position="stacked">Email:</ion-label>
+                      <ion-input inputmode="email" formControlName="email" type="email" placeholder="Ex.: joe@doe.com">
+                      </ion-input>
+                    </ion-item>
+                    <div *ngFor="let validation of validation_messages.email">
+                      <ng-container style="color:black;font-size:13px;text-align:center"
+                        *ngIf="email.hasError(validation.type) && (email.dirty || email.touched)">
+                        <small class="error-message">{{ validation.message }}</small>
+                      </ng-container>
+                    </div>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                <ion-col>
+                  
+                    <ion-button expand="full" style="text-transform: none;font-size:12px!important;color:white" [disabled]="!myForm.valid" type="submit" color="primary" no-margin>Update</ion-button>
+                  
+                </ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
+
+  <ion-card no-margin>
+   <ion-grid fixed no-padding>
+      <ion-row>
+        <ion-col padding>
+          <ion-list margin-bottom>
+            <ion-list-header color="light">
+              <ion-label class="fw700">Change Password</ion-label>
+            </ion-list-header>
+          
+          <form [formGroup]="myFormPassword" (ngSubmit)="submitPass()">
+            <ion-grid style="border:2px solid grey">
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-input maxLength="10" formControlName="oldPwd" style="text-align:left;color:black"
+                      placeholder="Old Password" maxLength="30" type="password"></ion-input>
+                  </ion-item>
+                  <div *ngFor="let validation of validation_messages.oldPwd">
+                    <ng-container style="color:black;font-size:13px;text-align:center"
+                      *ngIf="oldPwd.hasError(validation.type) && (oldPwd.dirty || oldPwd.touched)">
+                      <small class="error-message">{{ validation.message }}</small>
+                    </ng-container>
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-input  formControlName="newPwd" style="text-align:left;color:black"
+                      placeholder="New Password" maxLength="30" type="password"></ion-input>
+                  </ion-item>
+                  <div *ngFor="let validation of validation_messages.newPwd">
+                    <ng-container style="color:black;font-size:13px;text-align:center"
+                      *ngIf="newPwd.hasError(validation.type) && (newPwd.dirty || newPwd.touched)">
+                      <small class="error-message">{{ validation.message }}</small>
+                    </ng-container>
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-input maxLength="30" formControlName="confPwd" style="text-align:left;color:black"
+                      placeholder="Confirm Password" type="password"></ion-input>
+                  </ion-item>
+                  <div *ngFor="let validation of validation_messages.confPwd">
+                    <ng-container style="color:black;font-size:13px;text-align:center"
+                      *ngIf="confPwd.hasError(validation.type) && (confPwd.dirty || confPwd.touched)">
+                      <small class="error-message">{{ validation.message }}</small>
+                    </ng-container>
+                  </div>
+                  <div *ngIf="myFormPassword.hasError('notSame')">
+                    <small class="error-message">password not match</small>
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-button expand="full" [disabled]="!myFormPassword.valid" type="submit" color="primary" style="text-transform:none;color:white;font-size:12px!important">
+                    Update</ion-button>
+
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </form>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+   </ion-grid>
+  </ion-card>
+
+
+</ion-content>

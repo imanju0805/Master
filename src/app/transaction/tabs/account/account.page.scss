@@ -1,0 +1,115 @@
+:host {
+    ion-content {    
+      background-color: white;
+    }
+  }
+
+  .bg-profile{
+    background-color: white;
+      padding: 0;
+  }
+
+  ion-content.backImage{
+    background-color: white;
+    
+      font-size:12px;
+  }
+
+  .ion-label{
+    text-transform: capitalize;
+  }
+
+  a{
+    text-decoration: none;
+    color:#004a8e;
+    border-bottom:1px solid red;
+    }
+  
+
+  .ico{
+    margin-left: 70%;
+  }
+  
+  .profile {
+    
+    ion-card {
+     
+      border-radius: 0;
+      background-color: white;
+      ion-card-content {
+        padding: 5px;
+        background-color: white;
+        color: #fff;
+        text-align: center;
+  
+        img {
+          border-radius: 50%;
+          border: solid 4px #fff;
+          display: inline;
+          box-shadow: 0 0 28px rgba(255,255,255, .65);
+        }
+        
+  
+        h1 {
+          margin-top: .5rem;
+        }
+      }
+    }
+  
+    ion-item {
+      ion-input {
+        border-bottom: 1px solid var(--ion-color-tertiary);
+      }
+    }
+  
+    ion-buttom {
+      button {
+        margin: 0;
+      }
+    }
+  }
+  ion-header {
+    >ion-toolbar {
+        --border-color: #3880ff !important;
+        &.custom-big-toolbar {
+          height: 66px;
+          display: flex;
+          align-items: center;
+          > ion-buttons {
+            height: 60px;
+            > ion-button {
+              height: 50px;
+            }
+          }
+        }
+        .notification-badge {
+          position: absolute;
+          right: 5px;
+          top: 5px;
+        }
+        > ion-searchbar {
+          padding-top: 15px;
+        }
+        &.sub-header {
+    
+          .search-box {
+            padding: 0 10px;
+            > ion-col {
+              display: flex;
+              justify-content: flex-start;
+              height: 37px;
+              align-items: center;
+              // border: solid thin #ccc;
+              border-radius: 5px;
+              background: #ffffff36;
+              padding: 0 10px;
+              color:rgba(255,255,255,.5);
+              > ion-icon {
+                font-size: 24px;
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }

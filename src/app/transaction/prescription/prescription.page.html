@@ -1,0 +1,16 @@
+<div style="color:white;background:#004a8e;padding-left:10px;padding-right:10px;border:none;">
+  
+    <h4 text-center style="font-size: 16px;">Prescription</h4>
+ 
+<div style="position:relative;float:right;margin-top:-40px;" (click)="dismis()">
+  <ion-icon name="close" style="color:white;height:30px;width:30px;"></ion-icon>
+</div>
+</div>
+
+<ion-content>
+ 
+  <div *ngIf="respData" style="height:100vh;width:100%;">
+    <img [src]="respData" style="width:600px;" (click)="viewPhoto();"/>
+  </div>
+ 
+</ion-content>

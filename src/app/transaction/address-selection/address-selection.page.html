@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" text="" (click)="back()"></ion-back-button>
+      <img routerLink="/transaction/tabs/home" src="assets/icon/Top-Nav-logo.png">
+    </ion-buttons>
+    <ion-title style="font-size: 16px;">Select Address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-row style="padding-left:10px">
+      <ion-col (click)="addAddress()">
+        <ion-icon name="add"></ion-icon>&nbsp;&nbsp;<ion-label>Add Address</ion-label>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div *ngIf="notFound">
+    <ion-row style="padding-left:10px">
+      <ion-col>
+        <ion-label style="font-size:12px!important;color:rgb(248, 74, 74)">
+          Sorry, we couldn't find any partner medical stores in the selected address. Please choose different address.
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-grid>
+    
+    <ion-row class="address-row">
+      <ion-col>
+        <ion-list>
+          <ion-radio-group name="auto" mode="md" [(ngModel)]="selectedAddress">
+            <ion-item *ngFor="let address of addressList, let i=index">
+              <ion-label>
+                <p class="address-label">{{address.AddLabel}}</p>
+                <p>{{address.Address}}</p>
+              </ion-label>
+              <ion-radio [value]="address.AddressId" slot="end" (click)="selectAddress(address)"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button [disabled]="enbaleButton" style="text-transform:none;" color="primary" size="default" expand="block"
+      fill="solid" (click)="gotoOrderSummary(selectedAddress)">Review Order</ion-button>
+  </ion-toolbar>
+</ion-footer>

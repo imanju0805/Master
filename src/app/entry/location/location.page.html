@@ -1,0 +1,184 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref=""></ion-back-button>
+      <ion-title style="font-size: 16px;">Delivery Address</ion-title>
+
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+
+    <div class="map-wrapper">
+
+      <div id="map_center">
+      </div>
+      <div #map id="map">
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="margin-top:4px;">
+  <div>
+    <ion-row style="border-bottom:1px solid grey;opacity:0.7;">
+      <ion-col>
+        <ion-label style="font-size:18px;font-weight:bold;color:black;">Select delivery location</ion-label>
+        <div style="margin-top:0px;float:right">
+          <ion-fab-button (click)="loadMap()" style="height:30px;width:30px;">
+            <ion-icon style="font-size:18px;" name="locate"></ion-icon>
+          </ion-fab-button>
+        </div>
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm size-md size-lg size-xl>
+        <small>
+          YOUR LOCATION</small>
+        <p style="margin-top:4px;font-size:14px;font-weight:bold;color:black;">
+          <ion-icon name="checkmark-circle" style="font-weight:bold;color:#004a8e;"></ion-icon>{{address}}
+        </p>
+
+      </ion-col>
+      <ion-col size="3" size-sm size-md size-lg size-xl>
+        <small></small>
+        <p (click)="presentModal()"
+          style="margin-right:12px;margin-top:22px;float:right;font-size:13px;font-weight: bold;color:#004a8e">CHANGE
+        </p>
+
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="hideConfirm">
+      <ion-col>
+        <ion-button [disabled]="confirmEnable" (click)="openAddress()" expand="full" style="text-transform:none">Confirm
+          location & Proceed</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <form *ngIf="showForm" [formGroup]="myform" (ngSubmit)="prosesMap()">
+
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col style="border-bottom:1px solid rgb(77, 76, 76);opacity:0.5;">
+            <div>
+              <ion-label style="font-size:12px;">HOUSE/FLAT/BLOCK NO.</ion-label>
+              <ion-input style="font-weight:bold;margin-left:-8px;margin-top:-3px;" type="text"
+                formControlName="Address" required> </ion-input>
+            </div>
+            <div *ngFor="let validation of validation_messages.Address">
+              <ng-container *ngIf="Address.hasError(validation.type) && (Address.dirty || Address.touched)">
+                <small class="error-message">{{ validation.message }}</small>
+              </ng-container>
+            </div>
+          </ion-col>
+
+        </ion-row>
+        <ion-row style="padding-top:4px;">
+          <ion-col style="border-bottom:1px solid rgb(78, 78, 78);opacity:0.5;">
+            <div>
+              <ion-label style="font-size:12px;">LANDMARK(For Better service)</ion-label>
+
+              <ion-input style="font-weight:bold;margin-left:-8px;margin-top:-3px;" type="text"
+                (ngModelChange)="presentAlert($event)" formControlName="Landmark"> </ion-input>
+
+            </div>
+
+          </ion-col>
+
+        </ion-row>
+        <ion-row style="padding-top:4px;">
+          <ion-col style="border-bottom:1px solid rgb(70, 69, 69);opacity:0.5;">
+            <div>
+              <ion-label style="font-size:12px;">MOBILE NUMBER</ion-label>
+
+              <ion-input style="font-weight:bold;margin-left:-8px;margin-top:-3px;" type="tel" [(ngModel)]="mobile"
+                inputmode="number" onKeyPress="if(this.value.length==10){return false;}" formControlName="MobNo">
+              </ion-input>
+
+            </div>
+
+
+          </ion-col>
+
+        </ion-row>
+        <ion-row style="padding-top:4px;">
+          <ion-col style="border-bottom:1px solid rgb(54, 53, 53);opacity:0.5;">
+            <div>
+              <ion-label style="font-size:12px;">PIN CODE</ion-label>
+
+              <ion-input style="font-weight:bold;margin-left:-8px;margin-top:-3px;" type="number" formControlName="PIN"
+                onKeyPress="if(this.value.length==6){return false;}" inputmode="number" value="" required> </ion-input>
+
+            </div>
+            <div *ngFor="let validation of validation_messages.PIN">
+              <ng-container *ngIf="PIN.hasError(validation.type) && (PIN.dirty || PIN.touched)">
+                <small class="error-message">{{ validation.message }}</small>
+              </ng-container>
+            </div>
+          </ion-col>
+
+        </ion-row>
+        <ion-row style="padding-top:4px;">
+          <ion-col style="opacity:0.5;">
+            <div>
+              <ion-label style="font-size:12px;">SAVE AS</ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="showOther">
+          <ion-col>
+            <ion-chip (click)="selectLabel('Home')" style="background: #004a8e;font-size:12px;height:20px;">
+
+              <ion-label style="color:white;font-weight:bold;font-size:12px;">Home</ion-label>
+            </ion-chip>
+            <ion-icon *ngIf="isShow" style="font-size:18px;" name="checkmark" color="primary"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-chip (click)="selectLabel('Work')" style="background: #004a8e;font-size:12px;height:20px;">
+              <ion-label style="color:white;font-weight:bold;font-size:12px;">Work</ion-label>
+            </ion-chip>
+            <ion-icon *ngIf="isShowWork" style="font-size:18px;" name="checkmark" color="primary"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-chip (click)="showInput()" style="background: #004a8e;font-size:12px;height:20px;">
+
+              <ion-label style="color:white;font-weight:bold;font-size:12px;">Other</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="enterOther">
+
+          <ion-col>
+
+            <div>
+              <ion-chip (click)="selectOther()" style="background: #004a8e;font-size:12px;height:20px;">
+                <ion-label style="color:white;font-weight:bold;font-size:12px;">Other</ion-label>
+              </ion-chip>
+              <ion-icon *ngIf="isShowOther" style="font-size:18px;" name="checkmark" color="primary"></ion-icon>
+            </div>
+            <div style="margin-top:-45px;">
+              <ion-input (ngModelChange)="enableCheck($event)" formControlName="AddLabel" onkeyup="this.value =this.value.charAt(0).toUpperCase()+this.value.slice(1);"
+                style="margin-top:8px;margin-left:30%;border-bottom:1px solid #004a8e;width:70%" type="text">
+              </ion-input>
+
+            </div>
+          </ion-col>
+          <ion-col size="1">
+            <div (click)="clearText($event)">
+              <ion-icon style="margin-right:20px;;margin-top:7px;" name="close-circle"></ion-icon>
+            </div>
+          </ion-col>
+
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button padding-left padding-right style="text-transform:none" expand="full" type="submit" share="round"
+              color="primary" [disabled]="!myform.valid">Save Address</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </form>
+</ion-content>

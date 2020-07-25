@@ -1,0 +1,95 @@
+ion-content {
+  --background: rgba(241, 240, 240, 0.9);
+  ion-grid {
+    &.upload-grid {
+      background-color: #ffffff;
+      > ion-row {
+        &.upload-option-row {
+          > ion-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-right: solid thin #cccccc;
+            > ion-icon {
+              font-size: 30px;
+              color: orange;
+            }
+            > p {
+              font-size: 14px;
+              margin: 3px 0px;
+            }
+            &:last-child {
+              border: none !important;
+            }
+          }
+        }
+
+        &.upload-option-security-row {
+          > ion-col {
+            text-align: center;
+            font-size: 12px;
+            ion-item {
+              border-bottom: solid thin #ccc;
+              --border-color: transparent;
+              font-size: 13px;
+              &:last-child {
+                border-bottom: none !important;
+              }
+            }
+          }
+        }
+
+        &.upload-prescription-image-row {
+          > ion-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            > img {
+              width: 90px;
+              height: 90px;
+              margin: 0 auto;
+              padding: 1px;
+            }
+            > div {
+              &.remove-button {
+                padding: 5px 0px;
+                color: orange;
+                text-transform: uppercase;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  ion-row {
+    &.header-row {
+      margin-top: 1rem;
+      color: #928f8f;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    &.extra-marigin-top {
+      margin-top: 3rem !important;
+    }
+
+    &.medicin-add-row {
+      > ion-col {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        >div{
+            font-size: 12px;
+            font-weight: bold;
+            >ion-button{
+                --border-color:orange;
+                --color:orange;
+            }
+        }
+      }
+    }
+  }
+}

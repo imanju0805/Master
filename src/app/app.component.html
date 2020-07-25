@@ -1,0 +1,32 @@
+<ion-app>
+
+  <ion-menu side="start" menuId="first">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+        <img src="assets/icon/Top-Nav-logo.png">
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-content>
+      <ion-list style="margin-top:-10px;border:none;" lines="none">
+        <ion-menu-toggle autoHide="false" *ngFor="let p of MenuList,let i=index">
+          <ion-item no-header [routerLink]="p.url" [class.active-menu]="activePath === p.url">
+            <ion-icon name="{{p.icon}}" slot="start"></ion-icon>
+            <ion-label>{{p.title}}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-item>
+          <ion-icon name="log-out" slot="start"></ion-icon>
+          <ion-label (click)="logout()">Logout</ion-label>
+        </ion-item>
+        <div style="background:#004a8e;height:100px;text-align:center">
+          <ion-label (click)="toggleMenu()">
+            <ion-icon name="close" class="iconDesign">x</ion-icon>
+          </ion-label>
+        </div>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main-content" main></ion-router-outlet>
+</ion-app>

@@ -1,0 +1,23 @@
+
+ion-item{
+    --background:#004a8e;
+    --color:white;
+    border:none;
+}
+ion-icon{
+    color:rgb(243, 243, 243);
+}
+
+.iconDesign{
+    margin-top:30px;
+    height:35px;
+    width:35px;
+    background:#004a8e;
+    border:1px solid white;
+    color:white;
+    border-radius:50%
+}
+ion-toolbar{
+    --background:#f4f6f8;
+    color: #004a8e;
+}

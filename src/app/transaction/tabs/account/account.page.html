@@ -1,0 +1,92 @@
+<ion-header>
+
+  <ion-toolbar style="border-bottom:1px solid grey">
+    <ion-buttons slot="start">
+
+      <ion-menu-button auto-hide="false" text=""></ion-menu-button>
+      <img (click)="back()" src="assets/icon/Top-Nav-logo.png">
+
+    </ion-buttons>
+    <ion-buttons slot="primary">
+
+      <ion-button routerLink="/transaction/cart">
+        <ion-icon slot="icon-only" name="cart"> </ion-icon>
+        <ion-badge class="notification-badge" color="danger" *ngIf="cartCount">{{cartCount}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+
+
+    <ion-buttons slot="end">
+      <ion-button >
+        <img *ngIf="!respData" style="float:left;height:30px;width:30px;border-radius:50%" 
+          src="../../assets/images/User-icon.png" />
+        <img *ngIf="respData" style="width:30px;height:30px;border-radius:50%" [src]="respData" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content *ngIf="result" class="profile">
+  <ion-card  no-margin>
+    <ion-card-content class="bg-profile">
+      <img *ngIf="!respData" (click)="selectImage()" style="height: 150px;width: 150px;"
+        src="/assets/images/user.jpg">
+      <img *ngIf="respData" (click)="selectImage()" style="height: 150px;width: 150px;" [src]="respData">
+      <h1 style="color: black;">{{userName}}</h1>
+      <small style="color: black;" margin-bottom>CustomerId-{{custId}} &nbsp;&nbsp;{{mobNo}}</small>&nbsp;&nbsp;
+      <small (click)="editProfilePage()" style="color:#004a8e" margin-bottom>Edit profile</small>  
+      <ion-icon  style="width: 10px;height: 10px;" name="create" color="primary" (click)="editProfilePage()">
+      </ion-icon>
+    </ion-card-content>
+  </ion-card>
+  <div style="margin-top:14px;" (click)="location()">
+    <ion-card>
+      <ion-row style="border-bottom:1px solid grey;">
+        <ion-col size="1" size-sm size-md size-lg size-xl>
+          <ion-icon name="add" style="color:#004a8e;font-weight:bold;font-size:18px!important;width:30px;opacity:1">
+          </ion-icon>
+        </ion-col>
+        <ion-col text-left size-sm size-md size-lg size-xl>
+          <ion-label style="font-size:12px!important;font-weight: bold;color:black;">Add Address</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+<div text-center>
+  <ion-label   style="font-size:12px;margin-top:-25px;font-weight:bold;color:black;text-align: center;">
+     click here for <a (click)="viewTerms()"> terms and condition</a> and <a (click)="viewPlicy()">legal policy</a></ion-label>
+    </div>
+  <div *ngFor="let item of result">
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col style="padding-left:10px;padding-top:10px;" class="ion-text-align-middle">
+            <ion-label style="font-size:12px!important;font-weight:bold;color:#004a8e">{{item.AddLabel}}</ion-label>
+          </ion-col>
+          <ion-col size="3">
+            <ion-icon style="font-size:12pxpx!important;color:#004a8e;font-weight:bold;" name="create"
+              (click)="come(item)"></ion-icon>
+            &nbsp;&nbsp;<ion-icon style="font-size:12pxpx!important;color:rgb(236, 26, 26);font-weight:bold;"
+              name="trash" (click)="confirmMessage(item)"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+        <ion-row style="margin-top:-10px;">
+          <ion-col style="padding-left:10px;padding-top:10px;" class="ion-text-align-middle">
+            <ion-label style="font-size:10px!important;font-weight: bold;color:black">{{item.Address}}</ion-label>
+          </ion-col>
+
+        </ion-row>
+        <ion-row style="margin-top:-14px;">
+          <ion-col style="padding-left:10px;padding-top:10px;" class="ion-text-align-middle">
+            <ion-label style="font-size:10px!important;font-weight: bold;color:black">{{item.Location}}</ion-label>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+
+
+</ion-content>

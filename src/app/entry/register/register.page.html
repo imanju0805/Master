@@ -1,0 +1,131 @@
+<ion-content>
+  <div style="text-align:center;margin-top:15px;">
+    <img src="assets/icon/Login-Icon.png" style="width:100px;width:100px" />
+    <h5 style="color:#003F72"><b>Customer Registration</b></h5>
+  </div>
+  <form padding class="med" [formGroup]="myform" (ngSubmit)=" prosesRegister()">
+    <ion-item>
+      <ion-label>
+        <ion-icon name="person"></ion-icon>
+      </ion-label>
+      <ion-input readonly autocomplete="off" name="UserName" type="text" placeholder="Mobile Number/UserName*"
+        formControlName="UserName" [(ngModel)]="postData.UserName" (ngModelChange)="checkBox()" required></ion-input>
+    </ion-item>
+    <div *ngFor="let validation of validation_messages.UserName">
+      <ng-container  *ngIf="UserName.hasError(validation.type) && (UserName.dirty && UserName.touched)">
+       <small class="error-message">{{ validation.message }}</small> 
+      </ng-container>
+    </div>
+    <ion-item> 
+        <ion-label>
+          <ion-icon name="key"></ion-icon>
+        </ion-label>
+        <ion-input  autocomplete="off" [type]="passwordType"  placeholder="Password*" class="form-control"
+          formControlName="password" [(ngModel)]="postData.password" (ngModelChange)="checkBox()"></ion-input>
+          <div style="margin-top:0px;">
+            <span>
+              <ion-icon item-end (click)="hideShowPassword()" [name]="passwordIcon" class="passwordIcon"></ion-icon>
+            </span>
+          </div>
+    </ion-item>
+    <ng-container *ngFor="let error of error_messages.password">
+      <div  *ngIf="myform.get('password').hasError(error.type) && (myform.get('password').dirty || myform.get('password').touched)">
+       <small class="error-message">{{ error.message  }}</small> 
+      </div>
+    </ng-container>
+    <ion-item>    
+        <ion-label>
+          <ion-icon name="key"></ion-icon>
+        </ion-label>
+
+        <ion-input  autocomplete="off" [type]="passwordType" placeholder="Confirm Password*" class="form-control"
+          formControlName="confirmpassword" (ngModelChange)="checkBox()"></ion-input>
+          <div style="margin-top:0px;">
+            <span>
+              <ion-icon item-end (click)="hideShowPassword()" [name]="passwordIcon" class="passwordIcon"></ion-icon>
+            </span>
+          </div>
+        </ion-item>
+    <div *ngIf="myform.hasError('notSame')">
+      <small class="error-message">password not match</small>
+    </div>
+
+    <ion-item>
+      <ion-label>
+        <ion-icon name="contact"></ion-icon>
+      </ion-label>
+      <ion-input autocomplete="off" (ngModelChange)="checkBox()" name="FirstName" type="text" Placeholder="First Name*" formControlName="FirstName"
+        [(ngModel)]="postData.FirstName" required></ion-input>
+
+    </ion-item>
+    <div *ngFor="let validation of validation_messages.FirstName">
+      <ng-container  *ngIf="FirstName.hasError(validation.type) && (FirstName.dirty && FirstName.touched)">
+       <small class="error-message">{{ validation.message }}</small> 
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label>
+        <ion-icon name="person"></ion-icon>
+      </ion-label>
+      <ion-input  autocomplete="off" name="MiddleName" type="text"  Placeholder="MiddleName" formControlName="MiddleName"
+        [(ngModel)]="postData.MiddleName"></ion-input>
+    </ion-item>
+   
+    <ion-item>
+      <ion-label>
+        <ion-icon name="person"></ion-icon>
+      </ion-label>
+      <ion-input autocomplete="off" type="text" Placeholder="Last Name" formControlName="LastName"
+        [(ngModel)]="postData.LastName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-icon name="mail"></ion-icon>
+      </ion-label>
+      <ion-input  autocomplete="off" type="email" Placeholder="Email" formControlName="Email"
+        [(ngModel)]="postData.Email"></ion-input>
+    </ion-item>
+   
+
+    <!-- <ion-item>
+      <ion-label>
+        <ion-icon name="call"></ion-icon>
+      </ion-label>
+      <ion-input readonly  name="Pan No" type="text" [(ngModel)]="postData.MobNo" (ngModelChange)="checkBox()" formControlName="MobNo" maxLength="10"
+        placeholder="Mobile Number"></ion-input>
+    </ion-item>
+    <div *ngFor="let validation of validation_messages.MobNo">
+      <ng-container  *ngIf="MobNo.hasError(validation.type) && (MobNo.dirty && MobNo.touched)">
+       <small class="error-message">{{ validation.message }}</small> 
+      </ng-container>
+    </div> -->
+    <br>
+    <ion-row >
+      <ion-col size="1" text-right size-sm size-md size-lg size-xl>
+        <ion-checkbox (click)="onChange(option)" formControlName="cb"  value="question.options"
+          >
+        </ion-checkbox>
+      </ion-col>
+      <ion-col text-left size-sm size-md size-lg size-xl>
+        <ion-label  style="font-size:12px;margin-top:-25px;font-weight:bold;color:black">
+          by clicking on this link you agree to our <a (click)="viewTerms()"> terms and condition</a> and <a (click)="viewPlicy()">legal policy</a></ion-label>
+          <div *ngFor="let validation of validation_messages.cb">
+            <ng-container  *ngIf="cb.hasError(validation.type) && (cb.dirty && cb.touched)">
+             <small class="error-message">{{ validation.message }}</small> 
+            </ng-container>
+          </div>
+      </ion-col>
+
+    </ion-row>
+    <ion-button  expand="block" type="submit" share="round" color="primary" [disabled]="!myform.valid">
+      <b>SignUp Now</b></ion-button>
+  </form>
+
+
+  <div text-center margin-top>
+    <span ion-text color="secondary" tappable >Already have an account? <strong>
+      <ion-label (click)="login()">Sign In</ion-label></strong></span>
+  </div>
+
+</ion-content>

@@ -1,0 +1,108 @@
+<ion-header color="light" no-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+
+      <ion-back-button defaultHref="/transaction/tabs/order" text=""></ion-back-button>
+      <img (click)="back()" src="assets/icon/Top-Nav-logo.png" style="padding-top:0px;">
+
+    </ion-buttons>
+    <ion-title style="font-size: 16px;">View Order</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="height:50px;">
+    <div *ngIf="orderDetails">
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-start size="2">
+            <div class="date-col">
+              <ion-label class="label-date">
+                &nbsp;{{orderDetails.OrderDate |  date :  "dd"}}
+                <p class="paragraph">
+                  {{orderDetails.OrderDate |  date :  "MMM yy"}}</p>
+              </ion-label>
+            </div>
+          </ion-col>
+
+
+          <ion-col size="6" class="order-col">
+            <ion-label class="order-label">Order Id-{{orderDetails.Order_Id}}</ion-label>
+            <p *ngIf="count==0" style="margin-top:20px;font-size:10px;color:#0a0a0a;float:left;margin-right:0px;">
+              Prescription not available
+            </p>
+            <p *ngIf="count>0" style="font-size:10px;color:#004a8e;float: left;margin-top:20px;"
+              (click)="checkPrescription(viewPrescription)">{{viewPrescription}} Prescription
+            </p>
+          </ion-col>
+          <ion-col size="4">
+            <div class="distance-col" *ngIf="orderId.invCount>0">
+              <p class="view-quote" style="color:#030303;font-size:11px;float:left;margin-top:-2px;">Quote Submitted</p>
+            </div>
+            <div *ngIf="orderId.invCount==0">
+              <p style="color:#050505;font-size:11px;float:left;margin-top:-2px;">Quote Pending</p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+  <div class="box" [class.opened]="openPrescription">
+
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" *ngFor="let item of sampleNumber,let i=index">
+            <div class="prescription">
+              <a style="font-size:11px;"><b (click)="presentModal(orderId,item)">Prescription -{{i+1}}</b>
+
+              </a>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="false">
+          <p style="font-weight:bold;margin-top:10px;font-size:10px;text-align:left;color:black;margin-left:5px;">
+            Prescription is not available</p>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+
+  <ion-card>
+    <div padding *ngIf="orderDetails">
+
+      <div *ngFor="let item of orderDetails.liOrdDtls,let i=index" class="bottomRow">
+
+        <ion-grid id="grid">
+          <ion-row>
+            <ion-col>
+              <ion-label style="font-size:12px">{{item.MedicineName}}</ion-label>
+            </ion-col>
+
+            <ion-col size="3">
+              <ion-input #Qty [(ngModel)]="item.Order_Qty" readonly
+                style="float:right;position:relative;margin-top:-3px;font-size:12px;height:20px;width:25px;" type="tel">
+              </ion-input>
+              <ion-label>{{item.Order_UoM}}</ion-label>
+            </ion-col>
+
+
+          </ion-row>
+        </ion-grid>
+      </div>
+      <br>
+      <ion-col text-right>
+
+        <ion-button style="font-size:12px ;font-weight:bold;color:white; background-color: #004a8e;"
+          (click)="cancelOrder(data,orderDetails.Customer_Id)" *ngIf="orderDetails.OrderStatus==20" fill="outline">
+          Cancel Order
+        </ion-button>
+
+
+      </ion-col>
+
+
+    </div>
+
+  </ion-card>
+</ion-content>

@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="" (click)="back()"></ion-back-button>
+      <img routerLink="/transaction/tabs/home" style="margin-top:0px;" src="assets/icon/Top-Nav-logo.png">
+    </ion-buttons>
+    <ion-title style="font-size:16px">Upload Prescription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <span style="font-size:10px;color:black">CHOOSE AN OPTION TO UPLOAD</span>
+    </ion-col>
+  </ion-row>
+
+  <ion-grid class="upload-grid">
+    <ion-row class="upload-option-row">
+      <ion-col size="6" (click)="getImages(1)">
+        <ion-icon name="md-camera" style="color: #004a8e;"></ion-icon>
+        <small>Camera</small>
+      </ion-col>
+      <ion-col size="6" (click)="getImages(2)">
+        <ion-icon name="md-images" style="color: #004a8e;"></ion-icon>
+        <small>Gallery</small>
+      </ion-col>
+     
+    </ion-row>
+    <ion-row class="upload-option-security-row">
+      <ion-col>
+        <span>Your attached Prescription will be secured and private. Only our
+          pharmacist will review it. You can upload maximum 3 images</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col (click)="viewPrescriptionGuide()">
+        <span>
+          <ion-label style="font-size:12px;font-weight:bold;color:#004a8e">? Prescription upload guide</ion-label>
+        </span>
+        <span>
+          <ion-icon name="arrow-forward" style="margin-top: 5px;float: right;"></ion-icon>
+        </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-row class="header-row extra-marigin-top" *ngIf="imageArray.length">
+    <ion-col>
+      <span>Added Prescriptions</span>
+    </ion-col>
+  </ion-row>
+  <ion-grid class="upload-grid" *ngIf="imageArray.length">
+    <ion-row class="upload-prescription-image-row">
+      <ion-col size="4" *ngFor="let image of imageArray;let i=index">
+        <img [src]="image.localPath" (click)="viewPhoto(image.newPath)">
+        <div class="remove-button" (click)="removeItem(i)">
+          <span>Remove</span>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <div *ngIf="showComment">
+    <div style="color:#004a8e;">
+      <ion-card>
+        <ion-row>
+          <ion-col size="1">
+            <ion-icon name="add" style="margin-top:0px;font-size:14px;color:#004a8e;font-weight:bold;"></ion-icon>
+          </ion-col>
+          <ion-col (click)="checkComment(viewCom)" text-left>
+            <span>
+              <ion-label style="font-size:12px;font-weight:bold;color:#004a8e">Add Your Delivery Instruction</ion-label>
+            </span>
+
+          </ion-col>
+
+        </ion-row>
+        <ion-row>
+          <div style="width:100%;" class="box" [class.opened]="viewComment">
+            <ion-card style="margin-top:0px;border:1px solid black">
+              <ion-item>
+                <ion-textarea rows="4"
+                  style="margin-top:-2px;margin-left:4px;font-size:12px;color:black;font-weight:bold;" [value]="comment"
+                  [(ngModel)]="comment" (ngModelChange)="checkEmpty(comment)" placeholder="Enter your comment here...">
+                </ion-textarea>
+              </ion-item>
+            </ion-card>
+          </div>
+        </ion-row>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" (click)="uploadFiles()" [disabled]="enableButton">Confirm Order</ion-button>
+  </ion-toolbar>
+</ion-footer>

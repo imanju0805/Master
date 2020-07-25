@@ -1,0 +1,47 @@
+<!-- <ion-header>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+
+      <ion-menu-button auto-hide="false" text=""></ion-menu-button>
+      <img (click)="back()" src="assets/icon/Top-Nav-logo.png">
+
+    </ion-buttons>
+    <ion-buttons slot="primary">
+
+      <ion-button routerLink="/transaction/cart">
+        <ion-icon slot="icon-only" name="cart"> </ion-icon>
+        <ion-badge class="notification-badge" color="danger" *ngIf="cartCount">{{cartCount}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+
+
+    <ion-buttons slot="end">
+      <ion-button (click)="editProfile()">
+        <img *ngIf="!respData" style="float:left;height:30px;width:30px;border-radius:50%" 
+          src="../../assets/images/User-icon.png" />
+        <img *ngIf="respData" style="width:30px;height:30px;border-radius:50%" [src]="respData" (changeLangOutput)="onLanguageChange($event)" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header> -->
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home" class="ionClass"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="order">
+      <ion-icon name="clipboard" class="iconClass"></ion-icon>
+      <ion-label>My Order</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="account">
+      <ion-icon name="person" class="iconClass"></ion-icon>
+      <ion-label>Account</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

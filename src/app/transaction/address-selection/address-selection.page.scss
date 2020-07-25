@@ -1,0 +1,31 @@
+ion-content {
+  --background: rgba(241, 240, 240, 0.9);
+
+  ion-grid {
+    padding: 0;
+    ion-row {
+      &.address-row {
+        margin-top: 5px;
+        ion-col {
+          padding: 0;
+          ion-radio-group {
+            ion-item {
+              ion-label {
+                overflow: inherit;
+                text-overflow: inherit;
+                white-space: inherit;
+                padding-left: 1rem;
+                >p{
+                    &.address-label{
+                        font-size: 13px;
+                        font-weight: bold;
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

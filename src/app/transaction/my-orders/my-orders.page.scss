@@ -1,0 +1,222 @@
+.menu-badge{
+    font-size:9px;
+    margin-left: -8px;
+    position:relative;
+    margin-top:4px;
+    
+    margin-bottom:15px;
+    color:#ffffff;
+    background-color: red;
+    padding:3px 4px;
+    border-radius:50%;
+  }
+
+  .box {
+    margin: 5px;
+    display: flex;
+  }
+  
+  
+  .date-col{
+    padding-right:12px;
+    padding-left:0px;
+    position:absolute;
+    border-right:1px solid black;
+    margin-top:-4px;
+    height:38px;
+  }
+  .inline-paragraph{
+    font-size:8px;
+    color:black;
+     opacity:0.7;
+  }
+  .paragraph{
+    margin-top:0px;
+    position:absolute;
+    font-size:12px;
+    opacity:0.8;
+  }
+  .paragraph1{
+    margin-top:9px;
+    position:absolute;
+    font-size:12px;
+    opacity:0.8;
+  }
+  .img-style{
+    margin-top:-10px;
+    position:relative;
+    height:30px;
+    width:30px;
+    margin-left:34px;
+  }
+  
+  .label-date{
+    color:black;
+    font-size:12px;
+    font-weight:bold;
+  }
+  .order-col{
+    position:relative;
+    text-align:left;
+    border-right:1px solid black;
+    margin-top:-4px;
+    height:38px;
+  }
+  .order-label{
+    padding-left:2px;
+    font-size:10px;
+    color:black;
+    font-weight:bold;
+    text-align: center;
+  }
+  .distance-col{
+    margin-top:4px;
+   color:black;
+    position:relative;
+    text-align:left
+  }
+  .distance-col1{
+    margin-top:6px;
+   color:black;
+    position:relative;
+    text-align:left
+  }
+  .distance-label{
+    font-size:10px;
+    color:black;
+    font-weight: bold;
+    opacity:0.6;
+  }
+  .top{
+    --background:rgba(245, 239, 239, 0.849);
+    width:30px;
+    height:30px;
+  }
+  ion-fab:hover{
+    --background: none;
+  }
+  ion-fab-button:hover{
+    --background: none;
+  }
+  ion-fab{
+    width:4px;
+   
+  }
+  
+  
+  
+  .wrapper-progressBar {
+    width: 100%;
+    
+  }
+  
+  .progressBar{
+    content:none;
+  }
+  
+  .progressBar li {
+    list-style-type: none;
+    float: left;
+    width: 33%;
+    position: relative;
+    text-align: center;
+    font-size:12px;
+    
+    
+  }
+  
+  .progressBar li:before {
+    content: " ";
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #373c4f;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px;
+    background-color: white
+  }
+  
+  .progressBar li:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    color:#373c4f;
+    background-color: #24d5e1;
+    top: 5px;
+    left: -50%;
+    z-index: -1;
+  }
+  
+  .progressBar li:first-child:after {
+    content: none;
+  }
+  
+  .progressBar li.active {
+    color: #373c4f;
+    
+  }
+  
+  .progressBar li.active:before {
+    border-color: #373c4f;
+    background-color: #004a8e;
+  }
+  
+  .progressBar .active:after {
+    background-color: #24d5e1;
+  }
+
+  .box-opener {
+    cursor: pointer;
+    }
+    
+    .box {
+    background-color: white;
+    max-height: 0px;
+    overflow-y: hidden;
+    transition: ease-in-out 400ms max-height;
+    }
+    
+    .box.opened {
+    max-height: 500px;
+    transition: ease-in-out 600ms max-height;
+    }
+    .itemAmount{
+      margin-left:10px;
+      position:relative;
+      text-align:right;
+      font-size:12px;
+      border: 1px solid rgb(187, 181, 181);
+      margin-top:-3px;
+      height:20px;
+    }
+    a:hover{
+      color:red;
+    }
+    a:visited{
+      color:green!important;
+    }
+  
+    .green {
+      background-color: green;
+  }
+  
+  .red {
+      background-color: red;
+  }
+  .view-quote{
+     padding-left:2px;
+     font-size:12px;
+     color:#004a8e;
+     text-align: center;
+   }
+
+   .view-quote1{
+     padding-left:2px;
+     font-size:12px;
+     color:#004a8e;
+     font-weight:bold;
+     text-align: center;
+     
+   }

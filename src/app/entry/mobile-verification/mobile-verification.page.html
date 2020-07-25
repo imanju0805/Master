@@ -1,0 +1,78 @@
+<ion-toolbar>
+<ion-buttons slot="start">
+  <ion-back-button text="" defaultHref='/entry/welcome'></ion-back-button>
+</ion-buttons>
+</ion-toolbar>
+<ion-content scroll-y="false">
+  <div style="padding-left:25px ;">
+    <ion-label>SignUp </ion-label>
+    <p>Signup to access your orders.</p>
+    <small style="font-family:roboto;color: #24d5e1;size: 14px;">Mobile NUMBER</small>
+    <form [formGroup]="myForm" (ngSubmit)="validateMobile()">
+      <ion-item>
+        <b> +91 | &nbsp;</b> &nbsp;
+        <ion-input type="tel" style="width:50px;" (keyup.enter)="sendOtp()" appPhoneMask
+          onKeyPress="if(this.value.length==10){return false;}" (ngModelChange)="showOtp($event)" formControlName="mob"
+          placeholder="Enter mobile number" required>
+        </ion-input>
+
+        <ion-button fill="outline" (click)="sendOtp()" [disabled]="iconDisabled">
+          Get OTP
+        </ion-button>
+
+      </ion-item>
+      <div *ngIf="errorMessage" lines="none">
+        <small style="color: rgb(228, 15, 15);">enter valid 10 digit number</small>
+      </div>
+
+      <ion-item *ngIf="!otpDisable">
+        <ion-input type="number" onKeyPress="if(this.value.length==6){return false;}"
+          (ngModelChange)="otpLength($event)" formControlName="otp" placeholder=" Enter OTP" required>
+        </ion-input>
+      </ion-item>
+
+
+
+      <ion-grid *ngIf="timerDisable">
+        <ion-row>
+          <ion-col>
+            <small style="color: red;">{{timeLeft}} waiting for OTP....</small>
+          </ion-col>
+          <ion-col>
+            <small *ngIf="resendOtpDisable" style="color:dodgerblue;font-weight:bold;" (click)="reSendOtp()">Resend
+              Otp</small>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <p text-center>Already registered? <a routerLink="/entry/login"><b>click here</b></a></p>
+    </form>
+  </div>
+  <br>
+  <ion-row padding *ngIf="showVerified">
+    <ion-col size="1">
+      <ion-checkbox (click)="onChange(option)" [disabled]="btnDisable" value="question.options" checked="false">
+      </ion-checkbox>
+    </ion-col>
+    <ion-col>
+      <ion-label  style="font-size:10px;margin-top:-25px;">I accept to the Terms and Conditions</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <ion-fab horizontal="center">
+    <ion-fab-button style="--background: #004a8e;" fill="outline" (click)="validateMobile()" [disabled]="fabButton">
+      <ion-icon name="arrow-forward" style="color: #fefeff;float:left"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div style="background:rgb(230, 227, 227);height:100vh;margin-top: 10%;">
+    <br><br>
+
+    <br><br>
+
+    <p padding style="text-align: center;">By continuing you agree to the <a (click)="viewTerms()">Terms and conditions</a> 
+      & <a (click)="viewPlicy()">Legal Policy</a></p>
+  </div>
+
+
+</ion-content>

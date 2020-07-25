@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar class="custom-big-toolbar">
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal(false)">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="font-size: 16px;">Search Medicene</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="goToCart()">
+        <ion-icon slot="icon-only" name="cart"> </ion-icon>
+        <ion-badge class="notification-badge" color="danger" *ngIf="cartCount">{{cartCount}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="12">
+        <ion-searchbar [(ngModel)]="searchQuery" placeholder="Search for medicene" inputmode="text" type="text" #myInput
+          animated=true autocorrect="off" showCancelButton="always" (ionBlur)="checkEmpty($event)"
+          (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar>
+      </ion-col>
+
+
+
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!medicinList.length">
+    <app-upload-button-card (action)="uploadPrescription()" [data]="uploadCardData"></app-upload-button-card>
+  </div>
+  <div>
+    <ion-spinner class="custom-spinner" *ngIf="apiLoader"></ion-spinner>
+    <div class="custom-msg msg-error" *ngIf="customErrorMsg">Oops! please check your internet connection</div>
+  </div>
+  <ion-grid class="medicin-search-list" *ngIf="searched">
+    <ion-row *ngFor="let medicin of showMedicin">
+
+      <ion-col size="3" class="medicin-avatar">
+        <img [src]="medicin.imageUrl" />
+      </ion-col>
+      <ion-col size="9">
+        <ion-row>
+          <ion-col>
+            <p class="header">{{medicin.SearchResult}}</p>
+            <p class="sub-header">{{medicin.DrugDtls}}</p>
+          </ion-col>
+        </ion-row>
+        <app-cart-button [medicin]="medicin" [addToCartButtonDisplay]="true" (addToCart)="addToCart($event)"
+          *ngIf="medicin"></app-cart-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll threshold="10px" (ionInfinite)="loadData($event)" position="bottom">
+    <ion-infinite-scroll-content loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

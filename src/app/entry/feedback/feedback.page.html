@@ -1,0 +1,58 @@
+<ion-header no-header>
+  <ion-toolbar no-header no-border-top>
+    <ion-buttons slot="start">
+        <ion-back-button text="" defaultHref="/transaction/tabs/home"></ion-back-button>
+        
+    </ion-buttons>
+    <ion-title style="font-size: 16px;">Contact Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="support-logo">
+    <img src="../../assets/icon/2ndpage-Logo.png" alt="Ionic Logo">
+  </div>
+<p style="color: #004a8e;margin-top: 16px;text-align: center;font-weight: bold;">Enter Your FeedBack Here</p>
+  <form [formGroup]="myForm" (ngSubmit)="submit()">
+    <ion-list lines="none">
+      <ion-radio-group>
+       <ion-grid>
+        <ion-row>
+         <ion-col  size-sm size-md size-lg size-xl>
+        <ion-item lines="none" >
+      
+                <ion-label>Feedback</ion-label>
+            
+              <ion-radio (click)="buttonClick('FEED')"  formControlName="cb"  slot="start" value="Feed"></ion-radio>
+        </ion-item>
+        </ion-col>
+        <ion-col  size-sm size-md size-lg size-xl>
+            <ion-item lines="none">
+                <ion-label>Error</ion-label>
+             <ion-radio (click)="buttonClick('ERROR')"  formControlName="cb" slot="start" value="Error"></ion-radio>    
+        </ion-item>
+        </ion-col>
+        </ion-row>
+        </ion-grid>
+      </ion-radio-group>
+    </ion-list>
+   
+    <ion-item style="border:1px solid grey;margin-left:15px;margin-right:15px;"> 
+      <ion-textarea placeholder="Enter Message here" rows="6" formControlName="feedback" required>
+      </ion-textarea>
+    </ion-item> 
+    
+    <div *ngFor="let validation of validation_messages.feedback">
+        <ng-container  *ngIf="feedback.hasError(validation.type) && (feedback.dirty && feedback.touched)">
+        <small class="error-message">{{ validation.message }}</small> 
+        </ng-container>
+    </div>
+    
+    <div class="ion-padding">
+      <ion-button expand="block" style="text-transform:none;" [disabled]='!myForm.valid' type="submit">Submit</ion-button>
+    </div>
+  
+  
+  </form>
+
+</ion-content>

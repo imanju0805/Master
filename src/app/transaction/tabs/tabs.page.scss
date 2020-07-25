@@ -1,0 +1,92 @@
+.iconClass {
+    font-size: 20px;
+  }
+  .can-go-back {
+    ion-menu-button {
+      display: none;
+    }
+  }
+  ion-header {
+    >ion-toolbar {
+        --border-color: #3880ff !important;
+        &.custom-big-toolbar {
+          height: 66px;
+          display: flex;
+          align-items: center;
+          > ion-buttons {
+            height: 60px;
+            > ion-button {
+              height: 50px;
+            }
+          }
+        }
+        .notification-badge {
+          position: absolute;
+          right: 5px;
+          top: 5px;
+        }
+        > ion-searchbar {
+          padding-top: 15px;
+        }
+        &.sub-header {
+    
+          .search-box {
+            padding: 0 10px;
+            > ion-col {
+              display: flex;
+              justify-content: flex-start;
+              height: 37px;
+              align-items: center;
+              border-radius: 5px;
+              background: #ffffff36;
+              padding: 0 10px;
+              color:rgba(255,255,255,.5);
+              > ion-icon {
+                font-size: 24px;
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    ion-content {
+      >ion-card{
+        >ion-card-content{
+          >ion-row{
+            >ion-col{
+              >div{
+                &.upload-prescription-row{
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+                  align-items: center;
+                  >.upload-prescription{
+                   >div{
+                     padding: 2px 0;
+                    &.title{
+                      font-size: 14px;
+                      color: #000000;
+                      font-weight: 400;
+                    }
+                    &.message{
+                      font-size: 12px;
+                    }
+                    &.discount{
+                      font-size: 14px;
+                      color: green;
+                    }
+                   }
+                  }
+                  >ion-button{
+                    text-transform: uppercase;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    

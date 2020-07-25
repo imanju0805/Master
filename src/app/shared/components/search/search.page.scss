@@ -1,0 +1,78 @@
+ion-header{
+  >ion-toolbar{
+      &.custom-big-toolbar {
+          height: 66px;
+          display: flex;
+          align-items: center;
+          > ion-buttons {
+            height: 60px;
+            > ion-button {
+              height: 50px;
+            }
+          }
+        }
+        .notification-badge {
+          position: absolute;
+          right: 5px;
+          top: 5px;
+        }
+        > ion-searchbar {
+          padding-top: 15px;
+        }
+  }
+
+
+}
+
+.custom-spinner{
+align-items: center;
+margin-top: 30%;
+margin-left: 45%;
+color: #004a8e;
+}
+app-search{
+.search-demo-text p{
+  text-align: center;
+  color:#337ab7;
+}
+}
+ion-content {
+
+p {
+  margin: 0;
+}
+ion-searchbar {
+  --background: #c3fafe;
+}
+> ion-grid {
+  &.medicin-search-list {
+    > ion-row {
+      border: solid thin #7e7070;
+      border-radius: 5px;
+      padding: 5px;
+      margin-bottom: 5px;
+      > ion-col {
+        
+        &.medicin-avatar {
+          // background-image: url("http://gwebsolution.com/demo/medv/svg/003-drugs.svg");
+          //background-repeat: no-repeat;
+          >img{
+            padding: .5rem;
+          }
+         
+        }
+        p {
+          &.header {
+            font-size: 14px;
+            font-weight: bold;
+          }
+          &.sub-header {
+            font-size: 12px;
+            color: #cccccc;
+          }
+        }
+      }
+    }
+  }
+}
+}
